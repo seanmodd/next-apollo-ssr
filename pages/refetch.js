@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from "react";
-import { useQuery, NetworkStatus } from "@apollo/client";
-import { QUERY } from "../data/apollo";
+import React, { useEffect, useState } from 'react';
+import { useQuery, NetworkStatus } from '@apollo/client';
+import { QUERY } from '../data/apollo';
 
-import List from "../components/List";
+import List from '../components/List';
 
 export default function RefetchPage() {
   const { data, loading, networkStatus, error, refetch } = useQuery(QUERY, {
-    notifyOnNetworkStatusChange: true
+    notifyOnNetworkStatusChange: true,
   });
 
   console.log({ loading, error });
@@ -17,18 +17,18 @@ export default function RefetchPage() {
     if (networkStatus !== NetworkStatus.ready) setCached(false);
   }, [networkStatus]);
 
-  if (loading) return "Loading...";
+  if (loading) return 'Loading...';
 
   return (
     <div>
       <p>
-        This page's data was fetched on the{" "}
-        <strong>{cached ? "Next.js server" : "client"}</strong>.<br />
-        Network Status: <strong>{networkStatus}</strong>{" "}
+        This page's data was fetched on the{' '}
+        <strong>{cached ? 'Next.js server' : 'client'}</strong>.<br />
+        Network Status: <strong>{networkStatus}</strong>{' '}
         <button
           onClick={() =>
             refetch({
-              fetchPolicy: "network-only"
+              fetchPolicy: 'network-only',
             })
           }
         >
