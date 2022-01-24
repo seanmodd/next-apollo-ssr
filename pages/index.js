@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
-import { useQuery } from "@apollo/client";
-import { QUERY } from "../data/apollo";
+import React, { useEffect, useState } from 'react';
+import { useQuery } from '@apollo/client';
+import { QUERY } from '../data/apollo';
 
-import List from "../components/List";
+import List from '../components/List';
 
 export default function IndexPage() {
   const { data, loading, error } = useQuery(QUERY, { ssr: true });
@@ -15,13 +15,13 @@ export default function IndexPage() {
     if (loading) setCached(false);
   }, [loading]);
 
-  if (loading) return "Loading...";
+  if (loading) return 'Loading...';
 
   return (
     <div>
       <p>
-        This page's data was fetched on the{" "}
-        <strong>{cached ? "Next.js server" : "client"}</strong>.
+        This page's data was fetched on the{' '}
+        <strong>{cached ? 'Next.js server' : 'client'}</strong>.
       </p>
 
       <List data={data?.jobs} />
