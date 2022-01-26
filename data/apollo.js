@@ -1,10 +1,4 @@
-import {
-  ApolloClient,
-  InMemoryCache,
-  gql,
-  //  gql
-} from '@apollo/client';
-// import gql from 'graphql-tag';
+import { ApolloClient, InMemoryCache, gql } from '@apollo/client';
 
 const isServer = typeof window === 'undefined';
 const windowApolloState = !isServer && window.__NEXT_DATA__.apolloState;
@@ -15,9 +9,7 @@ export function getApolloClient(forceNew) {
   if (!CLIENT || forceNew) {
     CLIENT = new ApolloClient({
       ssrMode: isServer,
-      // uri: 'https://api.graphql.jobs/',
       uri: 'https://api.shopcarx.com/graphql',
-      // uri: 'http://localhost:1337/graphql',
       cache: new InMemoryCache().restore(windowApolloState || {}),
 
       /**
@@ -41,38 +33,15 @@ export function getApolloClient(forceNew) {
   return CLIENT;
 }
 
-export const QUERY = gql`
-  query Jobs {
-    jobs {
-      id
-      title
-      postedAt
-    }
-  }
-`;
-
-// const ALLCARSQUERY = (dataPerPage = 24, pageNum = 1) => gql`
-export const ALLCARSQUERY = () => gql`
-  query Variants {
-    #    variants(where: { product: { name_contains: "Chrysler" } }) {
-     variants(limit: 1000) {
-    # variants(limit: ${dataPerPage}, start: ${(pageNum - 1) * dataPerPage}) {
-      car_carFax_status
-      car_currentCarURL
-      car_name
-      car_make_name
-      car_price
-          }
-  }
-`;
 export const CARSQUERY = gql`
   query Variants {
     variants(limit: 1000) {
-      car_carFax_status
-      car_currentCarURL
-      car_name
-      car_make_name
-      car_price
+      year
+      vin: car_vin
+      make
+      model
+      status: vehicle_status
+      dealership: car_dealership
     }
   }
 `;

@@ -9,17 +9,18 @@ export default function StrapiHeader() {
       <nav style={{ display: 'flex', justifyContent: 'space-between' }}>
         <span>
           Examples:
-          <Link href="/strapi">Strapi Simple</Link> <Link href="/strapi-refetch">Strapi Refetch</Link>{' '}
+          <Link href="/">Strapi Simple</Link>{' '}
+          <Link href="/refetch">Strapi Refetch</Link>{' '}
         </span>
         <span>
           <em>
             Data provided by{' '}
             <a
-              href="https://api.graphql.jobs/"
+              href="https://api.shopcarx.com/graphql"
               target="_blank"
               rel="noopener noreferrer"
             >
-              https://api.graphql.jobs/
+              https://api.shopcarx.com/graphql
             </a>
           </em>
         </span>
