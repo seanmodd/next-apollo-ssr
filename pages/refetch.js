@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useQuery, NetworkStatus } from '@apollo/client';
 import { QUERY } from '../data/apollo';
-
+import Header from '../components/Header';
 import List from '../components/List';
 
 export default function RefetchPage() {
@@ -21,6 +21,7 @@ export default function RefetchPage() {
 
   return (
     <div>
+    <Header />
       <p>
         This page's data was fetched on the{' '}
         <strong>{cached ? 'Next.js server' : 'client'}</strong>.<br />
