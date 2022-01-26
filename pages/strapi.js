@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useQuery } from '@apollo/client';
+// import { ALLCARSQUERY, QUERY } from '../data/apollo';
 import { ALLCARSQUERY } from '../data/apollo';
 import StrapiHeader from '../components/StrapiHeader';
 import List from '../components/List';
@@ -19,7 +20,7 @@ export default function IndexPage() {
 
   return (
     <div>
-    <StrapiHeader />
+      <StrapiHeader />
       <p>
         This page's data was fetched on the{' '}
         <strong>{cached ? 'Next.js server' : 'client'}</strong>.

@@ -1,5 +1,4 @@
 export default function List({ data }) {
-  console.log('This is data: ', data);
   return (
     <div
       style={{
@@ -8,7 +7,7 @@ export default function List({ data }) {
         gap: '1rem',
       }}
     >
-      {/* {[...data].map((item) => (
+      {[...data].map((item) => (
         <ul
           key={item.id}
           style={{
@@ -29,7 +28,7 @@ export default function List({ data }) {
             );
           })}
         </ul>
-      ))} */}
+      ))}
     </div>
   );
 }
