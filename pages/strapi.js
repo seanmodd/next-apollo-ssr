@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useQuery } from '@apollo/client';
 // import { ALLCARSQUERY, QUERY } from '../data/apollo';
-import { ALLCARSQUERY } from '../data/apollo';
+import { ALLCARSQUERY, CARSQUERY } from '../data/apollo';
 import StrapiHeader from '../components/StrapiHeader';
 import List from '../components/List';
 
 export default function IndexPage() {
-  const { data, loading, error } = useQuery(ALLCARSQUERY, { ssr: true });
+  const { data, loading, error } = useQuery(CARSQUERY, { ssr: true });
 
   console.log({ loading, error });
 

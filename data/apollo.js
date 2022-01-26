@@ -65,3 +65,14 @@ export const ALLCARSQUERY = () => gql`
           }
   }
 `;
+export const CARSQUERY = gql`
+  query Variants {
+    variants(limit: 1000) {
+      car_carFax_status
+      car_currentCarURL
+      car_name
+      car_make_name
+      car_price
+    }
+  }
+`;
